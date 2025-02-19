@@ -39,7 +39,7 @@ const AddBook = () => {
                         value={author}
                         onChange={(e) => setAuthor(e.target.value)} />
                 </div>
-                <button>Submit</button>
+                <button className='w-full mt-4'>Submit</button>
             </form>
         </div>
     );

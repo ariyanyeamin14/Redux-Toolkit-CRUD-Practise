@@ -12,6 +12,7 @@ import BooksView from './features/books/BooksView';
 import AddBook from './features/books/AddBook';
 import { Provider } from 'react-redux';
 import store from './app/store';
+import EditBook from './features/books/EditBook';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         path: "show-books",
         element: <BooksView></BooksView>
       },
+      {
+        path: "edit-book",
+        element: <EditBook></EditBook>
+      }
     ]
   },
   {

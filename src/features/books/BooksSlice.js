@@ -4,12 +4,12 @@ const initialBooks = {
     books: [
         {
             id: 1,
-            title: 'Love Bangladesh' ,
+            title: 'Love Bangladesh',
             author: "Ariyan Yeamin"
         },
         {
             id: 2,
-            title: 'Freedom of Bangladesh' ,
+            title: 'Freedom of Bangladesh',
             author: "Ariyan Yeamin"
         }
     ]
@@ -19,16 +19,28 @@ export const booksSlice = createSlice({
     name: "books",
     initialState: initialBooks,
     reducers: {
+
         showBooks: (state) => state,
+
         addBook: (state, action) => {
             state.books.push(action.payload)
         },
+
+        updateBook: (state, action) => {
+            const { id, title, author } = action.payload;
+            const theBook = state.books.find((book) => book.id === id);
+            if (theBook) {
+                theBook.title = title;
+                theBook.author = author;
+            }
+        },
+
         deleteBook: (state, action) => {
             const id = action.payload;
-            state.books = state.books.filter((book) => book.id !==id) 
+            state.books = state.books.filter((book) => book.id !== id)
         }
     },
 })
 
-export const {showBooks, addBook, deleteBook } = booksSlice.actions;
+export const { showBooks, addBook, deleteBook, updateBook } = booksSlice.actions;
 export default booksSlice.reducer
